@@ -1,6 +1,6 @@
 # MySQL-Stock-Database
 
-Resources used to create my personal database inside MySQL for quantitative analysis of the US Traded Securities. 
+Resources used to create my personal database inside MySQL for quantitative analysis of US Traded Securities. 
 
 Attached Files:
 
