@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS stocks.symbol (
     	name VARCHAR(252) NOT NULL,
     	PRIMARY KEY (id),
     	UNIQUE KEY ticker (symbol_id)
+	
     );
 
 CREATE TABLE IF NOT EXISTS stocks.daily_price (
@@ -18,4 +19,5 @@ CREATE TABLE IF NOT EXISTS stocks.daily_price (
     	close FLOAT DEFAULT NULL,
     	volume INT DEFAULT NULL,
     	PRIMARY KEY (id)
+	
     	);
