@@ -35,13 +35,14 @@ def replay():
 
     return input('Do you want to shape/upload another csv?\n').lower().startswith('y')
 
+
 while True:
 
     try:
 
         csv_input = str(input('Enter the file name of the csv:\n').lower())
 
-        df = pd.read_csv(f'C:/Users/pat/Downloads/{csv_input}.csv')
+        df = pd.read_csv(f'C:/Users/{csv_input}.csv')
 
         #reshaping the file to bring values to rows and metrics to columns
         value_rows = df.pivot_table('Values', ['Date', 'Ticker'], 'Metrics')
@@ -51,7 +52,7 @@ while True:
 
         print(ordered_columns)
 
-        ordered_columns.to_csv(r'C:/Users/pat/Desktop/stock prices/{}.csv'.format(csv_input))
+        ordered_columns.to_csv(r'C:/Users/{}.csv'.format(csv_input))
 
         upload_sql = str(input('Done shaping file for sql, would you like to upload to sql here?\n').lower())
 
@@ -62,7 +63,7 @@ while True:
             load_sql = """LOAD DATA LOCAL INFILE {} INTO TABLE {}} 
             FIELDS TERMINATED  BY ',' ENCLOSED BY '"' IGNORE 1 LINES;""".format(csv_input,table_name)
 
-            host = '127.0.0.1'
+            host = 'localhost'
             user = 'root'
             password = 'password'
             csv_to_mysql(load_sql, host, user, password)
